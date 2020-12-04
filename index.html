@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compression</title>
+    <script src="./dist/squoosh-core.bundle.js"></script>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 50px;
+        }
+        div {
+            display: inline-block; 
+        }
+        img {
+            width: 360px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="picker" />
+    <div>
+        原图：<span id="original-size"></span><br />
+        <img id="original-img" alt="" />
+    </div>
+    <div>
+        压缩后：<span id="compressed-size"></span><br />
+        <img id="compressed-img" alt="" />
+    </div>
+    <script>
+        var input = document.getElementById('picker');
+        var originalImg = document.getElementById('original-img');
+        var originalSize = document.getElementById('original-size');
+        var compressedImg = document.getElementById('compressed-img');
+        var compressedSize = document.getElementById('compressed-size');
+        input.addEventListener('change', async function (event) {
+            const file = this.files[0];
+            originalImg.src = URL.createObjectURL(file);
+            var kb = file.size / 1024, mb = 0;
+            if (kb > 1024) {
+                mb = kb / 1024;
+            }
+            originalSize.innerText = mb ? `${mb.toFixed(2)}MB` : `${kb.toFixed(2)}KB`;
+            var compressed = await window.squooshCore.compress(file);
+            compressedImg.src = URL.createObjectURL(compressed);
+            var kb = compressed.size / 1024, mb = 0;
+            if (kb > 1024) {
+                mb = kb / 1024;
+            }
+            compressedSize.innerText = (mb ? `${mb.toFixed(2)}MB` : `${kb.toFixed(2)}KB`) + ` (-${((file.size - compressed.size) / file.size * 100).toFixed(2)}%)`;
+        });
+    </script>
+</body>
+</html>

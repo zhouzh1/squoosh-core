@@ -1,0 +1,61 @@
+{
+  "name": "squoosh-core",
+  "version": "1.0.0",
+  "description": "image compressor inspired by Google's Squoosh App",
+  "main": "./dist/squoosh-core.bundle.min.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack --config ./webpack.config.js --env development --progress --colors --display-error-details --watch",
+    "build": "./node_modules/.bin/webpack --config ./webpack.config.js --env production --progress --colors --display-error-details"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhouzh1/squoosh-core.git"
+  },
+  "keywords": [
+    "image",
+    "compressor",
+    "squoosh"
+  ],
+  "author": "zhouzh1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhouzh1/squoosh-core/issues"
+  },
+  "homepage": "https://github.com/zhouzh1/squoosh-core#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "terser-webpack-plugin": "^4.2.2",
+    "ts-loader": "^8.0.11",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "Android >= 2.1",
+    "ios 7",
+    "firefox >= 15"
+  ]
+}
