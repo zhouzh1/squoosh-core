@@ -24,11 +24,15 @@ function getEncoderKey(mimeType: string): string {
   }
 }
 
+interface CompressOptions {
+  // @todo
+}
+
 /**
  * 
  * @param file 
  */
-export async function compress(file: File): Promise<File> {
+export async function compress(file: File, options: CompressOptions): Promise<File> {
   const mimeType = await sniffMimeType(file);
   const imageData = await builtinDecode(file);
   const quantized = await quantizeProcess(imageData);

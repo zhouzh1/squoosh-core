@@ -4,7 +4,7 @@
             "@babel/preset-env",
             {
                 "modules": false,
-                "useBuiltIns": "entry",
+                // "useBuiltIns": "entry",
                 "targets": {
                     "browsers": [
                         "> 1%",
@@ -18,8 +18,7 @@
                     "version": 3.6
                 }
             }
-        ],
-        "@babel/preset-react"
+        ]
     ],
     "plugins": [
         "@babel/plugin-proposal-object-rest-spread",

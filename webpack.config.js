@@ -11,7 +11,8 @@ module.exports = (env) => {
             path: output,
             filename: env == 'production' ? 'squoosh-core.bundle.min.js' : 'squoosh-core.bundle.js',
             library: 'squooshCore',
-            libraryTarget: 'umd'
+            libraryTarget: 'umd',
+            globalObject: 'this'
         },
         module: {
             rules: [

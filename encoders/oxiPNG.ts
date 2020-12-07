@@ -8,7 +8,7 @@ import {
 
 // import oxiWasmUrlST from 'url:codecs/oxipng/pkg/squoosh_oxipng_bg.wasm';
 // @debug
-const wasmUrl = './dist/squoosh_oxipng_bg.wasm';
+const wasmUrl = '/editor/lib/squoosh_oxipng_bg.wasm';
 
 export interface EncodeOptions {
     level: number;
