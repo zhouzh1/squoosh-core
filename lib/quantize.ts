@@ -3,7 +3,7 @@ import { initEmscriptenModule } from '../utils';
 
 // import wasmUrl from 'url:codecs/imagequant/imagequant.wasm';
 // @debug
-const wasmUrl = '/editor/lib/imagequant.wasm';
+const wasmUrl = './dist/imagequant.wasm';
 
 let emscriptenModule: Promise<QuantizerModule>;
 

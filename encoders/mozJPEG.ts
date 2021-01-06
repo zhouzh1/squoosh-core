@@ -8,7 +8,7 @@ import {
 } from '../utils';
 // import wasmUrl from '../codecs/mozjpeg_enc/mozjpeg_enc.wasm';
 // @debug
-const wasmUrl = '/editor/lib/mozjpeg_enc.wasm';
+const wasmUrl = './dist/mozjpeg_enc.wasm';
 
 export { EncodeOptions, MozJpegColorSpace };
 
