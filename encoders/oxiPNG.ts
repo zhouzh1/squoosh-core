@@ -29,7 +29,7 @@ async function initST() {
 
 let wasmReady: Promise<typeof optimiseST>;
 
-export async function encode(imageData: ImageData, options: EncodeOptions = defaultOptions) {
+export async function encode(imageData: ImageData, wasmUrl: string, options: EncodeOptions = defaultOptions) {
     const pngBlob = await canvasEncode(imageData, 'image/png');
     const pngBuffer = await blobToArrayBuffer(pngBlob);
     if (!wasmReady) {

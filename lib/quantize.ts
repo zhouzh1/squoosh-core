@@ -1,10 +1,6 @@
 import imagequant, { QuantizerModule } from '../codecs/imagequant/imagequant';
 import { initEmscriptenModule } from '../utils';
 
-// import wasmUrl from 'url:codecs/imagequant/imagequant.wasm';
-// @debug
-const wasmUrl = './dist/imagequant.wasm';
-
 let emscriptenModule: Promise<QuantizerModule>;
 
 export interface Options {
@@ -21,6 +17,7 @@ export const defaultOptions: Options = {
 
 export default async function process(
   data: ImageData,
+  wasmUrl: string,
   opts: Options = defaultOptions,
 ): Promise<ImageData> {
   if (!emscriptenModule) {

@@ -6,9 +6,6 @@ import mozjpeg_enc, {
 import {
     initEmscriptenModule,
 } from '../utils';
-// import wasmUrl from '../codecs/mozjpeg_enc/mozjpeg_enc.wasm';
-// @debug
-const wasmUrl = './dist/mozjpeg_enc.wasm';
 
 export { EncodeOptions, MozJpegColorSpace };
 
@@ -36,7 +33,7 @@ export const defaultOptions: EncodeOptions = {
 
 let emscriptenModule: Promise<MozJPEGModule>;
 
-export async function encode(data: ImageData, options?: EncodeOptions,): Promise<ArrayBuffer> {
+export async function encode(data: ImageData, wasmUrl: string, options?: EncodeOptions,): Promise<ArrayBuffer> {
   if (!emscriptenModule) {
     emscriptenModule = initEmscriptenModule(mozjpeg_enc, wasmUrl);
   }
