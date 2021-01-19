@@ -14,7 +14,7 @@
             display: inline-block; 
         }
         img {
-            width: 360px;
+            width: 720px;
             height: auto;
         }
     </style>
@@ -43,7 +43,11 @@
                 mb = kb / 1024;
             }
             originalSize.innerText = mb ? `${mb.toFixed(2)}MB` : `${kb.toFixed(2)}KB`;
-            var compressed = await window.squooshCore.compress(file);
+            var compressed = await window.squooshCore.compress(file, {
+                imagequant_wasm_url: './dist/imagequant.wasm',
+                jpegenc_wasm_url: './dist/mozjpeg_enc.wasm',
+                pngenc_wasm_url: './dist/squoosh_oxipng_bg.wasm',
+            });
             compressedImg.src = URL.createObjectURL(compressed);
             var kb = compressed.size / 1024, mb = 0;
             if (kb > 1024) {

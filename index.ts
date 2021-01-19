@@ -31,7 +31,7 @@ function getEncoderKey(mimeType: string): string {
 function getEncoderWasm(mimeType: string, options: CompressOptions): string {
   switch (mimeType) {
     case 'image/png':
-      return options.jpegenc_wasm_url;
+      return options.pngenc_wasm_url;
     case 'image/jpeg':
       return options.jpegenc_wasm_url;
     default:
@@ -53,6 +53,7 @@ export async function compress(file: File, options: CompressOptions): Promise<Fi
   const { imagequant_wasm_url } = options || {};
   const mimeType = await sniffMimeType(file);
   const imageData = await builtinDecode(file);
+  // const quantized = imageData;
   const quantized = await quantizeProcess(imageData, imagequant_wasm_url);
   const encoderKey = getEncoderKey(mimeType);
   const encoder = encoderMap[encoderKey];
